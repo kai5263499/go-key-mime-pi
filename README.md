@@ -27,4 +27,8 @@ sudo ./scripts/enable-usb-hid
 sudo reboot
 ```
 
-When the Pi reboots, run Go Key Mime Pi with the following commands:
+When the Pi reboots, build and run Go Key Mime Pi with the following make command:
+
+```bash
+make build run
+```
