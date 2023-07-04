@@ -1,0 +1,55 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: go-key-mime-pi
+  description: Remotely control a raspberry pi keyboard gadget
+paths:
+  /:
+    get:
+      tags: [v1]
+      operationId: GetHome
+      summary: GUI landing page
+      description: Web based keyboard GUI landing page
+      responses:
+        200:
+          content:
+            text/html:
+              schema:
+                type: string
+  /socket.io:
+    get:
+      tags: [v1]
+      operationId: GetWebSocketConnect
+      responses:
+        101:
+          description: WebSocket upgrade
+        200:
+          description: Connection succeeded
+        500:
+          description: Internal Error
+  /v1/paste:
+    post:
+      tags: [v1]
+      operationId: PostPaste
+      description: Paste a string to the keyboard
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: |-
+              This is a block of text I want to send to the USB gadget
+      responses:
+        200:
+          description: Paste succeeded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  succeeded:
+                    type: boolean
+                    example: true
+        500:
+          description: Internal Error
