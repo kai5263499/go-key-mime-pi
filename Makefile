@@ -35,3 +35,12 @@ internal/%/types.gen.go: api/%.yaml
 api/v1: $(OAPI_PATH)
 	@$(GO_PATH) generate -v ./internal/v1/...
 .PHONY: api/v1
+
+build:
+	mkdir -p out
+	go build -o out/go-key-mime-pi cmd/go-key-mime-pi/main.go
+.PHONY: build
+
+run:
+	./out/go-key-mime-pi
+.PHONY: run
