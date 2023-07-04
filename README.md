@@ -27,8 +27,12 @@ sudo ./scripts/enable-usb-hid
 sudo reboot
 ```
 
-When the Pi reboots, build and run Go Key Mime Pi with the following make command:
+When the Pi reboots, log back into it and build and run Go Key Mime Pi with the following make command:
 
 ```bash
 make build run
 ```
+
+The primary GUI for Go Key Mime Pi can be found at `http://${PI_ADDR}:8000/`
+
+Swagger docs can be found at `http://${PI_ADDR}:8000/swagger/index.html`
